@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=2c3aa514-16ff-4ff7-b266-c6967b7cc0a8
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<title>SmartBazaar Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<div class="topbar"><div class="wrap"><span><i class="live"></i><span data-t="upd">Prices updated today</span> &nbsp;<span id="tbd"></span></span>
+<div class="tbr"><a class="hm" href="#join" data-t="tbCol">Become a data collector</a>
+<div class="seg" role="group" aria-label="Language"><button id="bE" aria-pressed="true">EN</button><button id="bB" aria-pressed="false">বাং</button></div></div></div></div>
+<header><div class="wrap"><nav class="nav" aria-label="Main">
+<a class="logo" href="#top"><i>🧺</i>SmartBazaar</a>
+<div class="links" id="links">
+<div class="dd mega"><a class="tl" href="#prices" data-t="nP">Prices</a><button class="cb" aria-label="Prices menu" aria-expanded="false">▾</button><div class="menu"><div class="mb" id="mPr"></div></div></div>
+<div class="dd"><a class="tl" href="#compare" data-t="nC">Compare</a><button class="cb" aria-label="Compare menu" aria-expanded="false">▾</button><div class="menu"><div class="mb" id="mCm"></div></div></div>
+<div class="dd"><a class="tl" href="#trends" data-t="nT">Trends</a><button class="cb" aria-label="Trends menu" aria-expanded="false">▾</button><div class="menu"><div class="mb" id="mTr"></div></div></div>
+<div class="dd"><a class="tl" href="#smart" data-t="nS">Smart Buy</a><button class="cb" aria-label="Smart Buy menu" aria-expanded="false">▾</button><div class="menu"><div class="mb" id="mSm"></div></div></div>
+<div class="dd"><a class="tl" href="#join" data-t="nJ">Contribute</a><button class="cb" aria-label="Contribute menu" aria-expanded="false">▾</button><div class="menu"><div class="mb" id="mJn"></div></div></div>
+</div>
+<button class="btn" id="openLogin" data-t="login">Log in</button>
+<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button></nav>
+<div class="subnav" id="subc" aria-label="Categories"></div></div></header>
+
+<main id="top"><div class="wrap">
+<div class="page active" id="page-home"><div class="hero"><div>
+<h1 data-t="hh">Know the price before you leave home.</h1>
+<p data-t="hp">Daily grocery prices from four Dhaka markets, side by side, with trends and a budget planner.</p>
+<div class="sb"><input id="hs" aria-label="Search" placeholder="Search potato, আলু…"><button class="btn" id="hgo" data-t="search">Search</button></div>
+<div class="chips" id="chips"></div></div>
+<div class="mos" id="mos"></div></div></div>
+
+<section class="page" id="page-prices"><div class="sh"><div><h2 data-t="hP">Today's market prices</h2><p data-t="pP">Lowest price found across all markets. Prices in ৳ per unit.</p></div>
+<div class="tools"><input id="q" style="width:180px" aria-label="Search" placeholder="Search…"><select id="cat" aria-label="Category"></select><select id="sort" aria-label="Sort"></select></div></div>
+<div class="grid" id="pg"></div></section>
+
+<section class="page" id="page-compare"><div class="sh"><div><h2 data-t="hC">Compare markets</h2><p data-t="pC">Pick a product and see which bazaar sells it cheapest today.</p></div></div>
+<div class="split"><div class="card"><div class="f"><label data-t="lProd">Product</label><select id="cp"></select></div><div id="cpic"></div></div><div class="card" id="cbars"></div></div></section>
+
+<section class="page" id="page-trends"><div class="sh"><div><h2 data-t="hT">Price trend, last 7 days</h2><p data-t="pT">See whether a price is rising or falling before you buy.</p></div>
+<div class="tools"><select id="tp" aria-label="Product"></select><select id="tm" aria-label="Market"></select></div></div>
+<div class="card"><svg class="ch" id="chart" viewBox="0 0 700 260" role="img" aria-label="Price chart"></svg></div></section>
+
+<section class="page" id="page-smart"><div class="sh"><div><h2 data-t="hS">Smart recommendation</h2><p data-t="pS">Set a budget and quantities. We find the cheapest market for each item.</p></div></div>
+<form class="card" id="fS" novalidate><div class="f" style="max-width:260px"><label for="bud" data-t="lBud">Budget (৳)</label><input id="bud" type="number" min="100" max="100000" value="1000" data-v="req,num"><span class="err"></span></div>
+<label style="font-weight:600;font-size:14px" data-t="lQty">Quantity of each item (kg / L / dozen)</label><div class="rc" id="rc" style="margin:8px 0 14px"></div><span class="err" id="rcErr" style="margin-bottom:10px"></span>
+<button class="btn" data-t="calc">Find best plan</button><div class="res" id="res" aria-live="polite"></div></form></section>
+
+<section class="page" id="page-join"><div class="sh"><div><h2 data-t="hJ">Add a price or set an alert</h2><p data-t="pJ">Collectors submit prices for admin review. Anyone can ask to be told when a price drops.</p></div></div>
+<div class="two">
+<form class="card" id="fC" novalidate><h3 data-t="hCo" style="margin-bottom:14px">Submit a price</h3>
+<div class="fr"><div class="f"><label data-t="lProd">Product</label><select id="cP" data-v="req"></select><span class="err"></span></div><div class="f"><label data-t="lMk">Market</label><select id="cM" data-v="req"></select><span class="err"></span></div></div>
+<div class="fr"><div class="f"><label data-t="lPr">Price (৳)</label><input id="cPr" type="number" step="0.5" min="1" max="5000" data-v="req,num"><span class="err"></span></div><div class="f"><label data-t="lDt">Date</label><input id="cD" type="date" data-v="req,date"><span class="err"></span></div></div>
+<div class="f"><label data-t="lNm">Your name</label><input data-v="req,name" autocomplete="name"><span class="err"></span></div>
+<button class="btn" data-t="sub">Send for review</button></form>
+<form class="card" id="fA" novalidate><h3 data-t="hAl" style="margin-bottom:14px">Price alert</h3>
+<div class="f"><label data-t="lProd">Product</label><select id="aP" data-v="req"></select><span class="err"></span></div>
+<div class="f"><label data-t="lTg">Alert me when the price falls to (৳)</label><input type="number" min="1" max="5000" data-v="req,num"><span class="err"></span></div>
+<div class="f"><label data-t="lEm">Email</label><input type="email" data-v="req,email" autocomplete="email"><span class="err"></span></div>
+<div class="f"><label data-t="lPhO">Mobile (optional)</label><input placeholder="01712345678" data-v="phone" autocomplete="tel"><span class="err"></span></div>
+<button class="btn" data-t="setA">Set alert</button></form></div></section></div></main>
+
+<dialog id="dlg"><button class="x" id="cx" aria-label="Close">✕</button><h2 id="dt">Welcome</h2>
+<div class="tabs"><div class="seg" style="width:100%"><button type="button" id="tL" aria-pressed="true" data-t="login">Log in</button><button type="button" id="tR" aria-pressed="false" data-t="reg">Register</button></div></div>
+<form id="fL" novalidate>
+<div class="f rg" hidden><label data-t="lNm">Full name</label><input data-v="req,name" autocomplete="name"><span class="err"></span></div>
+<div class="f"><label data-t="lEm">Email</label><input type="email" data-v="req,email" autocomplete="email"><span class="err"></span></div>
+<div class="f rg" hidden><label data-t="lPh">Mobile</label><input placeholder="01712345678" data-v="req,phone"><span class="err"></span></div>
+<div class="f"><label data-t="lPw">Password</label><input type="password" id="pw" data-v="req,pass" autocomplete="current-password"><span class="err"></span></div>
+<div class="f rg" hidden><label data-t="lCp">Confirm password</label><input type="password" data-v="req,match"><span class="err"></span></div>
+<div class="f rg" hidden><label data-t="lRole">I am a</label><select><option data-t="rU">General user</option><option data-t="rC">Data collector</option></select></div>
+<div class="f rg" hidden><label class="ck"><input type="checkbox" data-v="req"><span data-t="agree">I agree to the terms</span></label><span class="err"></span></div>
+<button class="btn" style="width:100%" id="dgo" data-t="login">Log in</button></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/app.js"></script></body></html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="2c3aa514-16ff-4ff7-b266-c6967b7cc0a8" data-app-host="app.netlify.com" data-account-tier="free"></script>
